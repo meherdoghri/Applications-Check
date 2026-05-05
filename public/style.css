@@ -218,6 +218,20 @@ input.invalid { border-color: var(--red); }
 /* ── Utility ─────────────────────────────────────────────────────────────── */
 .hidden { display: none !important; }
 
+/* ── Banner ─────────────────────────────────────────────────────────────── */
+.banner-ok {
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  background: #dcfce7; border: 1.5px solid #86efac; border-radius: var(--radius);
+  padding: .85rem 1.25rem; margin-bottom: 1.25rem; font-size: .9rem;
+  color: #166534; position: relative;
+}
+.banner-sub { font-size: .82rem; opacity: .85; }
+.banner-close {
+  margin-left: auto; background: none; border: none; cursor: pointer;
+  font-size: 1rem; color: #166534; padding: .1rem .4rem; border-radius: 4px;
+}
+.banner-close:hover { background: #bbf7d0; }
+
 /* ── Footer ──────────────────────────────────────────────────────────────── */
 footer {
   text-align: center; padding: 1rem; font-size: .8rem;
