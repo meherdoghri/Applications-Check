@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const { spawn } = require('child_process');
+const { spawn, exec } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const crypto = require('crypto');
@@ -118,4 +118,14 @@ app.get('/api/last-result', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`✅  Serveur démarré sur http://localhost:${PORT}`);
+  // Ouvrir automatiquement le navigateur
+  const url = `http://localhost:${PORT}`;
+  const cmd = process.platform === 'win32'
+    ? `start "" "${url}"`
+    : process.platform === 'darwin'
+      ? `open "${url}"`
+      : `xdg-open "${url}"`;
+  exec(cmd, (err) => {
+    if (err) console.warn('Impossible d\'ouvrir le navigateur automatiquement:', err.message);
+  });
 });
