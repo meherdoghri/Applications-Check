@@ -1,0 +1,42 @@
+{
+  "name": "comparateur-rh",
+  "version": "2.0.0",
+  "description": "Comparateur de menus RH — 4YOU vs S7/HRa avec interface web",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "playwright test",
+    "precheck:network": "node src/precheck-network.js",
+    "test:compare": "playwright test tests/compare.spec.js",
+    "test:compare:functional": "playwright test tests/compare-functional.spec.js",
+    "test:compare:functional:resilient": "playwright test tests/compare-functional.spec.js --retries=2 --workers=1",
+    "compare:items": "node src/compare-functionality-items.js",
+    "compare:content": "node src/compare-page-content.js",
+    "compare:business": "node src/compare-business-common.js",
+    "generate:tableau": "node src/generate-tableau.js",
+    "extract:hierarchy": "node src/extract-hierarchy.js",
+    "organize:menus": "node src/generate-organized-menus.js",
+    "extract:hierarchy:live": "node src/extract-hierarchy-live.js",
+    "test:4you:uc10": "playwright test tests/uc10-4you.spec.js",
+    "test:4you:uc10:resilient": "playwright test tests/uc10-4you.spec.js --retries=2 --workers=1",
+    "test:4you:recorded": "playwright test tests/4you-uc10-recorded.spec.ts",
+    "test:4you:recorded:resilient": "playwright test tests/4you-uc10-recorded.spec.ts --retries=2 --workers=1",
+    "test:compare:safe": "npm run precheck:network && npm run test:compare",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "show-report": "playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.22.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "dotenv": "^17.4.2",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0"
+  }
+}

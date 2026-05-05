@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparateur RH — 4YOU vs S7</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">⚖️</div>
+      <div>
+        <h1>Comparateur RH</h1>
+        <p class="subtitle">Extraction &amp; comparaison des menus <strong>4YOU</strong> vs <strong>S7 / HRa</strong></p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── MAIN ── -->
+  <main>
+
+    <!-- ── FORM CARD ── -->
+    <section class="card" id="form-card">
+      <h2>🔗 Paramètres de connexion</h2>
+      <form id="extract-form" novalidate>
+        <div class="form-grid">
+
+          <!-- App A -->
+          <div class="app-block app-a">
+            <h3>Application A — <span class="app-tag a">4YOU</span></h3>
+            <label>URL de l'application
+              <input type="url" id="appAUrl" name="appAUrl" placeholder="https://…/app/foryou" required />
+            </label>
+            <label>Identifiant
+              <input type="text" id="appAUser" name="appAUser" placeholder="QAEEE001" required autocomplete="username" />
+            </label>
+            <label>Mot de passe
+              <input type="password" id="appAPass" name="appAPass" placeholder="••••••••" required autocomplete="current-password" />
+            </label>
+          </div>
+
+          <!-- App B -->
+          <div class="app-block app-b">
+            <h3>Application B — <span class="app-tag b">S7 / HRa</span></h3>
+            <label>URL de l'application
+              <input type="url" id="appBUrl" name="appBUrl" placeholder="https://…/hra-space" required />
+            </label>
+            <label>Identifiant
+              <input type="text" id="appBUser" name="appBUser" placeholder="A602540" required autocomplete="username" />
+            </label>
+            <label>Mot de passe
+              <input type="password" id="appBPass" name="appBPass" placeholder="••••••••" required autocomplete="current-password" />
+            </label>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="btn-launch" class="btn-primary">
+            <span class="btn-icon">🚀</span> Lancer l'extraction
+          </button>
+          <button type="button" id="btn-last" class="btn-secondary">
+            📂 Afficher le dernier résultat
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ── PROGRESS ── -->
+    <section class="card hidden" id="progress-card">
+      <h2>⏳ Extraction en cours…</h2>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <pre class="log-box" id="log-box"></pre>
+    </section>
+
+    <!-- ── RESULTS ── -->
+    <section class="card hidden" id="results-card">
+      <div class="results-header">
+        <h2>📊 Résultats de la comparaison</h2>
+        <div class="results-actions">
+          <button class="btn-secondary" id="btn-export-csv">⬇️ CSV</button>
+          <button class="btn-secondary" id="btn-export-json">⬇️ JSON</button>
+          <button class="btn-secondary" id="btn-new">🔄 Nouvelle extraction</button>
+        </div>
+      </div>
+
+      <!-- Summary badges -->
+      <div class="summary-row" id="summary-row"></div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="comparison">Comparaison</button>
+        <button class="tab" data-tab="4you">4YOU uniquement</button>
+        <button class="tab" data-tab="s7">S7 uniquement</button>
+        <button class="tab" data-tab="common">Commun</button>
+      </div>
+
+      <div id="tab-comparison" class="tab-content active"></div>
+      <div id="tab-4you"       class="tab-content hidden"></div>
+      <div id="tab-s7"         class="tab-content hidden"></div>
+      <div id="tab-common"     class="tab-content hidden"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Comparateur RH — Sopra Steria &bull; <span id="gen-date"></span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
