@@ -241,3 +241,60 @@ footer {
 
 /* ── Table wrapper ───────────────────────────────────────────────────────── */
 .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--gray-200); }
+
+/* ── Accordion ───────────────────────────────────────────────────────────── */
+.acc-list { display: flex; flex-direction: column; gap: .75rem; }
+.acc-item { border-radius: 10px; overflow: hidden; border: 1.5px solid var(--gray-200); }
+.acc-header {
+  display: flex; align-items: center; gap: .75rem; padding: .85rem 1.1rem;
+  cursor: pointer; user-select: none; background: var(--gray-50); flex-wrap: wrap;
+}
+.acc-header:hover { background: var(--gray-100); }
+.acc-body { display: none; padding: 1rem 1.25rem; background: #fff; }
+.acc-item.open .acc-body { display: block; }
+.acc-item.open .chevron { transform: rotate(90deg); }
+.chevron { transition: transform .2s; font-size: .8rem; color: var(--gray-400); margin-left: auto; }
+.domain-name { font-weight: 700; font-size: .95rem; color: var(--gray-900); }
+.domain-pills { display: flex; gap: .35rem; }
+
+/* Domain color by status */
+.domain-both   { border-color: #86efac; }
+.domain-a-only { border-color: #fca5a5; }
+.domain-b-only { border-color: #fdba74; }
+.domain-a      { border-color: #93c5fd; }
+.domain-b      { border-color: #c4b5fd; }
+.domain-both   .acc-header { background: #f0fdf4; }
+.domain-a-only .acc-header { background: #fef2f2; }
+.domain-b-only .acc-header { background: #fff7ed; }
+.domain-a      .acc-header { background: #eff6ff; }
+.domain-b      .acc-header { background: #f5f3ff; }
+
+/* ── Side-by-side grid ───────────────────────────────────────────────────── */
+.side-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width:700px){ .side-grid { grid-template-columns: 1fr; } }
+.side-col { border-radius: 8px; border: 1px solid var(--gray-200); overflow: hidden; }
+.col-header { font-weight: 700; font-size: .82rem; padding: .5rem .85rem; text-transform: uppercase; letter-spacing: .04em; }
+.col-header-a { background: #dbeafe; color: var(--a-color); }
+.col-header-b { background: #ede9fe; color: var(--b-color); }
+
+/* ── Theme & actions ─────────────────────────────────────────────────────── */
+.theme-block { padding: .6rem .85rem; border-bottom: 1px solid var(--gray-100); }
+.theme-block:last-child { border-bottom: none; }
+.theme-name { font-weight: 600; font-size: .85rem; margin-bottom: .4rem; padding-left: .5rem; }
+.theme-a { border-left: 3px solid var(--a-color); color: #1e3a6e; }
+.theme-b { border-left: 3px solid var(--b-color); color: #4c1d95; }
+.actions-wrap { display: flex; flex-wrap: wrap; gap: .3rem; padding-left: .75rem; }
+.action-chip { padding: .18rem .6rem; border-radius: 20px; font-size: .73rem; border: 1px solid; font-weight: 500; }
+.chip-a { background: #eff6ff; border-color: #93c5fd; color: #1e40af; }
+.chip-b { background: #f5f3ff; border-color: #c4b5fd; color: #6d28d9; }
+.not-in { font-size: .8rem; color: var(--gray-400); font-style: italic; padding: .5rem .85rem; display: block; }
+.no-action { font-size: .75rem; color: var(--gray-400); font-style: italic; }
+.empty-msg { padding: .75rem; color: var(--gray-400); }
+
+/* ── Comparison table rows ───────────────────────────────────────────────── */
+.row-a-only td { background: #fff5f5; }
+.row-b-only td { background: #fff8f0; }
+.td-domain { font-weight: 700; color: var(--gray-900); vertical-align: top; }
+.td-theme  { color: var(--gray-700); padding-left: 1.25rem !important; vertical-align: top; }
+.td-action { color: var(--gray-500); padding-left: 2.5rem !important; font-size: .8rem; }
+.td-empty  { color: var(--gray-300); font-style: italic; }
